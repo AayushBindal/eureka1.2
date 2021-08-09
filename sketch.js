@@ -96,7 +96,6 @@ function setup() {
   if(navigator.userAgent.toLowerCase().match(/mobile/i)) {
     console.log("not a computer");
     let button2 = select('#submit');
-    button2.addClass("button2");
  }
    else{
   let button = select('#submit');
