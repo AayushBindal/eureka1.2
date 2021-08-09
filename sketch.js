@@ -17,16 +17,23 @@ async function chat() {
   let txt = textInput.value();
   reply = await bot.reply('local-user', txt);
   searchValue = textInput.value();
+  if(navigator.userAgent.toLowerCase().match(/mobile/i)) {
+     console.log("not a computer");
+  }
+  else{
   var s = createP(searchValue);
   s.addClass("userchat");
   speech.speak(reply);
   botch = createP(reply).addClass('botchat');
-  
   createA("https://www.google.com/search?q="+searchValue+"&cvid=ba194626fbac4114be33953f19549c7a&aqs=edge.0.0l7.579j0j1&pglt=931&FORM=ANNTA1&PC=HCTS","my I search it for you","_blank");
+    console.log("A computer");
+}
+  
   botch.id="botchatId";
   console.log(botch.id);
-  if(reply.toLowerCase()==="ok! opening the mirror"){
+  if(reply.toLowerCase()==="ok! opening the camera"){
     video = createCapture(VIDEO);
+    
     console.log("camera enabled");
   }
   else if(reply.toLowerCase()==="ok closing the mirror."){
@@ -52,6 +59,14 @@ async function chat() {
       soundManager.play('mySound');
     });
     cancelSpeech();
+    }
+    else if(reply.toLowerCase()==="ok! here's the game."){
+      createIframe("https://aayushbindal.github.io/pikachu/");
+    }
+    else if(reply.toLowerCase()===("let's learn together" || "i only know abut this.")){
+      createP("");
+        createIframe("https://aayushbindal.github.io/website/");
+        console.log("hahahaash");
     }
   var w = window.innerWidth;
   var h = window.innerHeight;
