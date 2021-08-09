@@ -66,7 +66,7 @@ async function chat() {
     else if(reply.toLowerCase()===("let's learn together" || "i only know abut this.")){
       createP("");
         createIframe("https://aayushbindal.github.io/website/");
-        console.log("hahahaash");
+        console.log("");
     }
   var w = window.innerWidth;
   var h = window.innerHeight;
@@ -87,7 +87,15 @@ function setup() {
   // speechRec.start(continuous, interim);
 
   bot = new RiveScript();
+  if(navigator.userAgent.toLowerCase().match(/mobile/i)) {
+    console.log("not a computer");
+    let button2 = select('#submit');
+    button2.addClass("button2");
+ }
+   else{
   let button = select('#submit');
+  }
+
   textInput = select('#user_input');
   textOutput = select('#output');
   loadBot();
